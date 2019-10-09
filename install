@@ -28,7 +28,7 @@ build_clients=false
 build_release=true
 build_hip_clang=false
 run_tests=false
-rocm_path=/opt/rocm/bin
+rocm_path=/opt/rocm-2.7.3/bin
 # #################################################
 # Parameter parsing
 # #################################################
@@ -117,10 +117,10 @@ fi
 
 case "$distro" in
     centos)    
-        CXX=$rocm_path/${compiler} cmake3 -DBUILD_BENCHMARK=ON ../../. # or cmake-gui ../.
+        CXX=$rocm_path/${compiler} cmake3 -DCMAKE_INSTALL_PREFIX=/opt/rocm-2.7.3 -DBUILD_BENCHMARK=ON ../../. # or cmake-gui ../.
     ;;
     ubuntu)
-        CXX=$rocm_path/${compiler} cmake -DBUILD_BENCHMARK=ON ../../. # or cmake-gui ../.
+        CXX=$rocm_path/${compiler} cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm-2.7.3 -DBUILD_BENCHMARK=ON ../../. # or cmake-gui ../.
     ;;
 esac
 
